@@ -1,3 +1,4 @@
+#exit 1 # Uncomment to force a deploy error
 for f in *.zip
 	do
 		b=${f%.zip}
