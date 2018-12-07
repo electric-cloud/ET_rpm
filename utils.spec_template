@@ -30,9 +30,10 @@ A collection of utility scripts for testing RPM creation.
 # into the build tree.                                                         #
 ################################################################################
 echo "BUILDROOT = $RPM_BUILD_ROOT"
-mkdir -p $RPM_BUILD_ROOT/out
+echo "Working directory $PWD"
+mkdir -p $RPM_BUILD_ROOT
 
-cp artifacts/* $RPM_BUILD_ROOT/out
+cp artifacts/*.zip $RPM_BUILD_ROOT
 
 exit
 
