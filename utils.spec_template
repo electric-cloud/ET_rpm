@@ -33,6 +33,7 @@ echo "BUILDROOT = $RPM_BUILD_ROOT"
 echo "Working directory $PWD"
 mkdir -p $RPM_BUILD_ROOT
 
+
 cp artifacts/*.zip $RPM_BUILD_ROOT
 
 exit
