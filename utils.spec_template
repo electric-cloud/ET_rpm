@@ -13,9 +13,6 @@ URL: http://www.both.org
 Group: System
 Packager: Flow
 Requires: bash
-Requires: screen
-Requires: mc
-Requires: dmidecode
 BuildRoot: ~/rpmbuild/
 
 # Build with the following syntax:
@@ -30,15 +27,12 @@ A collection of utility scripts for testing RPM creation.
 # into the build tree.                                                         #
 ################################################################################
 echo "BUILDROOT = $RPM_BUILD_ROOT"
-echo "Working directory $PWD"
-mkdir -p $RPM_BUILD_ROOT
-
-
-cp artifacts/*.zip $RPM_BUILD_ROOT
-
+mkdir -p $RPM_BUILD_ROOT/usr/local/share/et
+cp ~/rpmbuild/artifacts/*.zip $RPM_BUILD_ROOT/usr/local/share/et
 exit
 
 %files
+%attr(0744, root, root) /usr/local/share/et
 
 %pre
 
@@ -46,22 +40,12 @@ exit
 ################################################################################
 # Set up MOTD scripts                                                          #
 ################################################################################
-#exit 1 # Uncomment to force a deploy error
-for f in *.zip
-        do
-                b=${f%.zip}
-                # Remove old backup
-                rm -rf ${b}_prev # Directory doesn't have to be present
-                # Backup current installation
-                if [ -d $b ]; then
-                        mv $b ${b}_prev
-                fi
-                # Install new
-                unzip $f
-        done
 
 %postun
 
+# Restore the original MOTD if it was backed up
+
 %clean
+rm -rf $RPM_BUILD_ROOT/usr/local/share/et
 
 %changelog
