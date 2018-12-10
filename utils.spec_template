@@ -6,7 +6,7 @@
 #
 Summary: Demo ET app
 Name: $[Application]
-Version: $[/myProject/$[Application]/version]-$[/myProject/$[Application]/rpmIndex]
+Version: $[/myProject/$[Application]/version]_$[/myProject/$[Application]/rpmIndex]
 Release: 1
 License: GPL
 URL: http://www.both.org
