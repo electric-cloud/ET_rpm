@@ -35,11 +35,11 @@ exit
 %attr(0744, root, root) /usr/local/share/et
 
 %pre
+exit 1
 
 %post
 
 %postun
-exit 1
 
 %clean
 rm -rf $RPM_BUILD_ROOT/usr/local/share/et
