@@ -35,15 +35,11 @@ exit
 %attr(0744, root, root) /usr/local/share/et
 
 %pre
+#exit 1
 
 %post
-################################################################################
-# Set up MOTD scripts                                                          #
-################################################################################
 
 %postun
-
-# Restore the original MOTD if it was backed up
 
 %clean
 rm -rf $RPM_BUILD_ROOT/usr/local/share/et
