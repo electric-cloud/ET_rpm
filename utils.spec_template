@@ -37,13 +37,9 @@ exit
 %pre
 
 %post
-################################################################################
-# Set up MOTD scripts                                                          #
-################################################################################
 
 %postun
-
-# Restore the original MOTD if it was backed up
+exit 1
 
 %clean
 rm -rf $RPM_BUILD_ROOT/usr/local/share/et
