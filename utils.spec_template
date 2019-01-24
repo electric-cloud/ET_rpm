@@ -35,7 +35,7 @@ exit
 %attr(0744, root, root) /usr/local/share/et
 
 %pre
-exit 0
+exit 1
 
 %post
 
